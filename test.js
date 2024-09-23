@@ -1,17 +1,12 @@
 // Codewars classwork
-/* function arrayDiff(arrayOne, arrayTwo) {  
+function arrayDiff(arrayOne, arrayTwo) {
   for (let i = 0; i < arrayTwo.length; i++) {
     arrayOne = arrayOne.filter((item) => item !== arrayTwo[i]);
   }
   return arrayOne;
 }
 
-console.log(arrayDiff([1, 2, 2, 2, 3, 10, 12, 10], [2, 10])); */
-/* 
-const arrayDiff2 = (arrayOne, arrayTwo) =>
-  arrayOne.join(", ").replaceAll(arrayTwo[0], "").split("");
-console.log(arrayDiff2([1, 2, 2, 2, 3, 10, 12, 10], [2, 10]));
- */
+console.log(arrayDiff([1, 2, 2, 2, 3, 10, 12, 10], [2, 10]));
 
 /* Codewars Assignment */
 
@@ -27,7 +22,7 @@ uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
 uniqueInOrder([1,2,2,3,3])       == [1,2,3]
 
 */
-/* var uniqueInOrder = function (iterable) {
+var uniqueInOrder = function (iterable) {
   //Thought process: Loop through the iterable, if the current item isnt same as the past item, add it to our final array
   // Then return the final array
   let finalArray = [];
@@ -40,7 +35,7 @@ uniqueInOrder([1,2,2,3,3])       == [1,2,3]
 
   return finalArray;
 };
-console.log(uniqueInOrder([1, 2, 2, 3, 3])); */
+console.log(uniqueInOrder([1, 2, 2, 3, 3]));
 
 //No 2:
 /* 
@@ -55,7 +50,7 @@ XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 XO("zzoo") => false
 */
 
-/* function XO(str) {
+function XO(str) {
   //code here
   // Thought process: lowercase for case insensitive, loop through to count no. of os and of xs, compare results
   let lCaseStr = str.toLowerCase().split("");
@@ -68,7 +63,7 @@ XO("zzoo") => false
   });
   return x == o;
 }
-console.log(XO("oox")); */
+console.log(XO("oox"));
 
 // No: 3
 /* 
@@ -77,11 +72,11 @@ Simple, given a string of words, return the length of the shortest word(s).
 String will never be empty and you do not need to account for different data types.
 
 */
-/* function findShort(s) {
+function findShort(s) {
   //let newStr = s.split(" ");
   return s.split(" ").sort((a, b) => a.length - b.length)[0].length;
 }
-console.log(findShort("Obi is a boy")); */
+console.log(findShort("Obi is a boy"));
 
 // No: 4
 /* 
@@ -90,7 +85,7 @@ Essentially, rearrange the digits to create the highest possible number.
 Examples:
 Input: 42145 Output: 54421
 */
-/* function descendingOrder(n) {
+function descendingOrder(n) {
   return Number(
     n
       .toString()
@@ -99,14 +94,14 @@ Input: 42145 Output: 54421
       .join("")
   );
 }
-console.log(descendingOrder(42145)); */
+console.log(descendingOrder(42145));
 
 //No: 5
 /* 
 Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
 For example, if we run 9119 through the function, 811181 will come out, because 9^2 is 81 and 1^2 is 1. (81-1-1-81)
 */
-/* function squareDigits(num) {
+function squareDigits(num) {
   // Thought process:convert to string and array, iterate and return the square of the number, join and reconvert back to number
   return Number(
     num
@@ -117,20 +112,20 @@ For example, if we run 9119 through the function, 811181 will come out, because 
   );
 }
 console.log(squareDigits(9119));
- */
+
+//              DAY TWO
 
 /* 
-
 Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
 For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
 
 [10, 343445353, 3453445, 3453545353453] should return 3453455.
 */
 
-/* function sumTwoSmallestNumbers(numbers) {
+function sumTwoSmallestNumbers(numbers) {
   //Code here
   return numbers.sort((a, b) => a - b)[0] + numbers.sort((a, b) => a - b)[1];
-} */
+}
 
 /* 
 There is an array with some numbers. All numbers are equal except for one. Try to find it!
@@ -151,3 +146,47 @@ function findUniq(arr) {
   }
 }
 findUniq([1, 1, 1, 2, 1, 1]);
+
+/* 
+Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
+*/
+
+function moveZeros(arr) {
+  const zeroArr = arr.filter((item) => item === 0);
+  const prevArr = arr.filter((item) => item !== 0);
+
+  return prevArr.concat(zeroArr);
+}
+
+console.log(
+  moveZeros([
+    "a",
+    "b",
+    null,
+    "c",
+    "d",
+    1,
+    false,
+    1,
+    3,
+    [],
+    1,
+    9,
+    {},
+    9,
+    +0,
+    +0,
+    +0,
+    false,
+    +0,
+    +0,
+    [],
+    +0,
+    +0,
+    +0,
+    +0,
+    +0,
+  ])
+);
